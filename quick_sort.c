@@ -110,5 +110,7 @@ int main()
     
     display_elements(arr, length);
 
+    free(arr);
+    
     return 0;
 }
