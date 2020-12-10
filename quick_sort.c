@@ -25,10 +25,10 @@ int partition(int arr[], int low_index, int high_index)
     while(i < j)
     {
         // Find the number greater than pivot.
-        while(arr[++i] < pivot);
+        while(((++i) < j) && (arr[i] < pivot));
         
         // Find the number smaller than pivot.
-        while(arr[--j] > pivot);
+        while(((--j) > low_index) && (arr[j] > pivot));
     
         // If i and j have crossed than break the loop and don't swap elements.
         if(i >= j)
