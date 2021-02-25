@@ -1,7 +1,5 @@
 /******************************************************************************
-
 Program to sort an array using quick sort algorithm.
-
 *******************************************************************************/
 #include <stdio.h>
 #include <stdlib.h>
@@ -25,17 +23,14 @@ int partition(int arr[], int low_index, int high_index)
     while(i < j)
     {
         // Find the number greater than pivot.
-        while(((++i) < j) && (arr[i] < pivot));
-        
+        while(((++i) < (high_index + 1)) && (arr[i] <= pivot));
+
         // Find the number smaller than pivot.
         while(((--j) > low_index) && (arr[j] > pivot));
-    
-        // If i and j have crossed than break the loop and don't swap elements.
-        if(i >= j)
-            break;
         
-        // Swap the number greater than pivot with the number smaller than pivot.
-        swap(&arr[i], &arr[j]);
+        // Swap the number if i and j have not crossed.
+        if(i < j)
+            swap(&arr[i], &arr[j]);
     }
     
     if(j != low_index)
